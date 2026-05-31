@@ -24,27 +24,20 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white shadow-sm">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* ── Logo ── */}
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
+        <Link href="/" className="shrink-0 flex items-center">
           <Image
-            src="/images/logo.svg"
-            alt="Hidropedia logo"
-            width={40}
-            height={40}
-            className="h-10 w-10 object-contain"
-            style={{
-              border: "none",
-              outline: "none",
-              background: "transparent",
-            }}
+            src="/images/banner.png"
+            alt="Hidropedia — Pertanian Berkelanjutan, Masa Depan Berkelanjutan"
+            width={1052}
+            height={228}
+            className="w-auto object-contain"
+            style={{ height: "48px" }}
+            priority
           />
-          <span className="text-xl font-extrabold tracking-tight">
-            <span className="text-sky-500">HIDRO</span>
-            <span className="text-green-600">PEDIA</span>
-          </span>
         </Link>
 
         {/* ── Desktop Nav Links ── */}
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-0.5 md:flex">
           {NAV_LINKS.map((link) => {
             const isActive =
               link.href === "/"
@@ -55,16 +48,15 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative px-3 py-2 text-sm font-medium transition-colors",
+                  "relative px-4 py-2 text-base font-medium transition-colors",
                   isActive
                     ? "text-green-700"
                     : "text-slate-600 hover:text-slate-900",
                 )}
               >
                 {link.label}
-                {/* Active underline */}
                 {isActive && (
-                  <span className="absolute bottom-0 left-3 right-3 h-0.5 rounded-full bg-green-600" />
+                  <span className="absolute bottom-0 left-4 right-4 h-0.5 rounded-full bg-green-600" />
                 )}
               </Link>
             );
@@ -81,7 +73,7 @@ export function Navbar() {
                   autoFocus
                   type="text"
                   placeholder="Cari artikel..."
-                  className="w-48 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-sm text-slate-800 placeholder:text-slate-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all"
+                  className="w-52 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-base text-slate-800 placeholder:text-slate-400 focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-400/20 transition-all"
                   onBlur={() => setIsSearchOpen(false)}
                   onKeyDown={(e) => {
                     if (e.key === "Escape") setIsSearchOpen(false);
@@ -97,7 +89,7 @@ export function Navbar() {
                   className="text-slate-400 hover:text-slate-600"
                   aria-label="Tutup pencarian"
                 >
-                  <X className="h-4 w-4" />
+                  <X className="h-5 w-5" />
                 </button>
               </div>
             ) : (
@@ -106,7 +98,7 @@ export function Navbar() {
                 className="rounded-full p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-800"
                 aria-label="Buka pencarian"
               >
-                <Search className="h-5 w-5" />
+                <Search className="h-6 w-6" />
               </button>
             )}
           </div>
@@ -114,7 +106,7 @@ export function Navbar() {
           {/* Login Button */}
           <Link
             href="/login"
-            className="rounded-full bg-green-600 px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
+            className="rounded-full bg-green-600 px-6 py-2.5 text-base font-semibold text-white transition-colors hover:bg-green-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2"
           >
             Login
           </Link>
