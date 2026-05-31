@@ -107,16 +107,22 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "relative px-4 py-2 text-base font-medium transition-colors",
+                    "group relative px-4 py-2 text-base font-medium transition-colors",
                     isActive
                       ? "text-green-700"
-                      : "text-slate-600 hover:text-slate-900",
+                      : "text-slate-600 hover:text-green-700",
                   )}
                 >
                   {link.label}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-4 right-4 h-0.5 rounded-full bg-green-600" />
-                  )}
+                  {/* Underline — selalu ada di DOM, visible saat active atau hover */}
+                  <span
+                    className={cn(
+                      "absolute bottom-0 left-4 right-4 h-0.5 rounded-full bg-green-600 transition-all duration-200",
+                      isActive
+                        ? "opacity-100 scale-x-100"
+                        : "opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100",
+                    )}
+                  />
                 </Link>
               );
             })}

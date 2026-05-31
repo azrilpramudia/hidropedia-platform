@@ -86,6 +86,7 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden border-t border-slate-100 bg-white">
+      {/* Background Vector Decorative */}
       <div className="pointer-events-none absolute bottom-0 left-0 h-64 w-64 opacity-10">
         <svg
           viewBox="0 0 200 200"
@@ -104,8 +105,10 @@ export function Footer() {
 
       <div className="mx-auto max-w-7xl px-4 pt-12 pb-6 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+          {/* ── Kolom 1: Logo & Deskripsi Singkat ── */}
           <div className="space-y-5">
-            <Link href="/">
+            {/* PERBAIKAN: Menambahkan 'className="block"' agar layout space-y-5 mengenali tinggi Link */}
+            <Link href="/" className="block">
               <Image
                 src="/images/banner.png"
                 alt="Hidropedia"
@@ -136,6 +139,7 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* ── Kolom 2: Navigasi Internal ── */}
           <div>
             <h3 className="mb-5 text-base font-bold text-slate-900">
               Navigasi
@@ -158,6 +162,7 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* ── Kolom 3: Kategori Artikel ── */}
           <div>
             <h3 className="mb-5 text-base font-bold text-slate-900">
               Kategori Populer
@@ -177,6 +182,7 @@ export function Footer() {
             </ul>
           </div>
 
+          {/* ── Kolom 4: Newsletter Form ── */}
           <div>
             <h3 className="mb-2 text-base font-bold text-slate-900">
               Dapatkan Update Terbaru
@@ -219,6 +225,7 @@ export function Footer() {
           </div>
         </div>
 
+        {/* ── Banner Tengah: CTA Bertumbuh Bersama ── */}
         <div className="my-10 flex flex-col items-center justify-between gap-6 overflow-hidden rounded-2xl border border-green-100 bg-green-50/50 px-8 py-6 sm:flex-row">
           <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-green-100">
             <Leaf className="h-8 w-8 text-green-600" />
@@ -241,6 +248,7 @@ export function Footer() {
           </Link>
         </div>
 
+        {/* ── Baris Bawah: Copyright, Nav Mini, & Social Media ── */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-slate-100 pt-6 sm:flex-row">
           <p className="text-xs text-slate-400">
             &copy; {year}{" "}

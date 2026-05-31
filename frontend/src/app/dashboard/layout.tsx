@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LayoutDashboard, FileText, PlusCircle, LogOut } from "lucide-react";
 import { LogoutButton } from "@/components/auth/logout-button";
+import { SIDEBAR_LINKS } from "@/constants/sidebar";
 
 export const metadata: Metadata = {
   title: {
@@ -9,12 +9,6 @@ export const metadata: Metadata = {
     template: "%s | Dashboard Hidropedia",
   },
 };
-
-const SIDEBAR_LINKS = [
-  { label: "Overview", href: "/dashboard", icon: LayoutDashboard },
-  { label: "Semua Artikel", href: "/dashboard/artikel", icon: FileText },
-  { label: "Tulis Artikel", href: "/dashboard/artikel/baru", icon: PlusCircle },
-];
 
 export default function DashboardLayout({
   children,

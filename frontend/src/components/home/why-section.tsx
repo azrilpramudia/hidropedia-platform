@@ -1,39 +1,4 @@
-import { BadgeCheck, LockOpen, Sprout, Recycle } from "lucide-react";
-
-const REASONS = [
-  {
-    icon: BadgeCheck,
-    title: "Konten Terverifikasi",
-    description:
-      "Setiap artikel ditulis dan ditinjau oleh praktisi berpengalaman untuk memastikan akurasi data teknis.",
-    iconBg: "bg-green-50",
-    iconColor: "text-green-600",
-  },
-  {
-    icon: LockOpen,
-    title: "Gratis Diakses",
-    description:
-      "Pengetahuan dasar tentang pertanian berkelanjutan harus dapat diakses oleh siapa saja tanpa hambatan biaya.",
-    iconBg: "bg-sky-50",
-    iconColor: "text-sky-600",
-  },
-  {
-    icon: Sprout,
-    title: "Fokus Spesifik",
-    description:
-      "Mendalami hidroponik dan akuaponik secara komprehensif dari tingkat pemula hingga skala industri.",
-    iconBg: "bg-teal-50",
-    iconColor: "text-teal-600",
-  },
-  {
-    icon: Recycle,
-    title: "Keberlanjutan",
-    description:
-      "Misi utama kami adalah mempromosikan metode pertanian yang menghemat air dan ruang untuk masa depan.",
-    iconBg: "bg-slate-100",
-    iconColor: "text-slate-500",
-  },
-];
+import { WHY_REASONS } from "@/constants/features";
 
 export function WhySection() {
   return (
@@ -54,7 +19,7 @@ export function WhySection() {
 
         {/* Cards */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {REASONS.map((item) => (
+          {WHY_REASONS.map((item) => (
             <div
               key={item.title}
               className="flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"

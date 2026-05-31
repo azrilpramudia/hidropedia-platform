@@ -1,8 +1,8 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
 import { Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useArticleFilters } from "@/hooks/use-article-filters";
 import type { Category } from "@/types";
 
 interface ArticleFiltersProps {
@@ -16,23 +16,10 @@ export function ArticleFilters({
   activeCategory,
   searchQuery,
 }: ArticleFiltersProps) {
-  const router = useRouter();
-  const pathname = usePathname();
-
-  function updateParams(key: string, value: string | undefined) {
-    const params = new URLSearchParams();
-    if (activeCategory && key !== "kategori")
-      params.set("kategori", activeCategory);
-    if (searchQuery && key !== "q") params.set("q", searchQuery);
-    if (value) params.set(key, value);
-    router.push(`${pathname}?${params.toString()}`);
-  }
-
-  function clearAll() {
-    router.push(pathname);
-  }
-
-  const hasFilters = activeCategory || searchQuery;
+  const { updateParams, clearAll, hasFilters } = useArticleFilters(
+    activeCategory,
+    searchQuery,
+  );
 
   return (
     <div className="space-y-4">

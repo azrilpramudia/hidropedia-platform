@@ -1,58 +1,6 @@
 import Link from "next/link";
-import {
-  ArrowRight,
-  Droplets,
-  LayoutGrid,
-  Sprout,
-  FlaskConical,
-  Cpu,
-  Leaf,
-} from "lucide-react";
-
-const TOPICS = [
-  {
-    icon: Droplets,
-    label: "Hidroponik",
-    slug: "hidroponik",
-    iconBg: "bg-green-50",
-    iconColor: "text-green-600",
-  },
-  {
-    icon: LayoutGrid,
-    label: "Akuaponik",
-    slug: "akuaponik",
-    iconBg: "bg-sky-50",
-    iconColor: "text-sky-600",
-  },
-  {
-    icon: Sprout,
-    label: "Budidaya",
-    slug: "budidaya",
-    iconBg: "bg-emerald-50",
-    iconColor: "text-emerald-600",
-  },
-  {
-    icon: FlaskConical,
-    label: "Nutrisi",
-    slug: "nutrisi",
-    iconBg: "bg-teal-50",
-    iconColor: "text-teal-600",
-  },
-  {
-    icon: Cpu,
-    label: "Teknologi",
-    slug: "teknologi",
-    iconBg: "bg-slate-100",
-    iconColor: "text-slate-500",
-  },
-  {
-    icon: Leaf,
-    label: "Sustainability",
-    slug: "sustainability",
-    iconBg: "bg-green-50",
-    iconColor: "text-green-500",
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { CATEGORIES } from "@/constants/categories";
 
 export function TopicsSection() {
   return (
@@ -74,7 +22,7 @@ export function TopicsSection() {
 
         {/* Topic Cards */}
         <div className="grid grid-cols-3 gap-4 sm:grid-cols-6">
-          {TOPICS.map((topic) => (
+          {CATEGORIES.map((topic) => (
             <Link
               key={topic.slug}
               href={`/artikel?kategori=${topic.slug}`}
@@ -89,7 +37,7 @@ export function TopicsSection() {
 
               {/* Label */}
               <span className="text-center text-sm font-semibold text-slate-700 group-hover:text-green-700">
-                {topic.label}
+                {topic.name}
               </span>
             </Link>
           ))}

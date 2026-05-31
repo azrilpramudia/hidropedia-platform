@@ -1,40 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, FileText, Tag, Users, Globe } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { PLATFORM_STATS } from "@/constants/stats";
 import { Button } from "@/components/ui/button";
-
-const STATS = [
-  {
-    icon: FileText,
-    value: "100+",
-    label: "Artikel Edukasi",
-    position: "top-4 left-4",
-  },
-  {
-    icon: Tag,
-    value: "10+",
-    label: "Kategori",
-    position: "top-4 right-4",
-  },
-  {
-    icon: Users,
-    value: "5K+",
-    label: "Pembaca Aktif",
-    // Menggunakan koordinat yang lebih aman agar tidak terlalu ke bawah
-    position: "bottom-20 left-4 sm:bottom-24",
-  },
-  {
-    icon: Globe,
-    value: "1",
-    label: "Misi Keberlanjutan",
-    position: "bottom-4 right-4",
-  },
-];
 
 export function HeroSection() {
   return (
-    // PERBAIKAN 1: Menggunakan min-h-[calc(100vh-64px)] agar pas satu layar penuh setelah navbar
-    // Ditambah flex dan items-center agar kontennya otomatis berada di tengah secara vertikal
     <section className="bg-light min-h-[calc(100vh-64px)] flex items-center py-12 md:py-16 overflow-hidden">
       <div className="mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
@@ -49,8 +20,10 @@ export function HeroSection() {
             {/* Judul */}
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-slate-900 md:text-5xl">
               Platform Edukasi{" "}
-              <span className="block text-green-600">Pertanian</span>
-              <span className="block text-green-600">Berkelanjutan</span>
+              <span className="block text-green-500">Pertanian</span>
+              <span className="block bg-linear-to-r from-green-500 to-cyan-400 bg-clip-text text-transparent">
+                Berkelanjutan
+              </span>
             </h1>
 
             {/* Deskripsi */}
@@ -83,7 +56,6 @@ export function HeroSection() {
           </div>
 
           {/* ── Kolom Kanan: Gambar + Floating Cards ── */}
-          {/* PERBAIKAN 2: Ditambahkan pb-10 pada mobile agar posisi absolute card bawah punya ruang aman */}
           <div className="relative pb-12 lg:pb-0">
             {/* Gambar utama */}
             <div className="relative overflow-hidden rounded-2xl shadow-xl">
@@ -96,14 +68,13 @@ export function HeroSection() {
                 priority
               />
               {/* Overlay gradient bawah */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
             </div>
 
             {/* Floating stat cards */}
-            {STATS.map((stat) => (
+            {PLATFORM_STATS.map((stat) => (
               <div
                 key={stat.label}
-                // PERBAIKAN 3: Ditambahkan 'whitespace-nowrap' agar teks tidak patah ke bawah di layar kecil
                 className={`absolute ${stat.position} flex items-center gap-2.5 rounded-xl bg-white/95 px-3.5 py-2.5 shadow-lg backdrop-blur-sm whitespace-nowrap transition-transform hover:scale-105 duration-200`}
               >
                 <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-50">
